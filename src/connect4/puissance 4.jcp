@@ -1,0 +1,26 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "puissance_4"
+JDKPROFILE := ""
+ACTIVE := "1"
+OUTPUTPATH := "..\\puissance 4"
+COMPILER := ""
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "" RUNAPPLET := "" PARAM := "" RUN := "puissance4IHM" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFile]SOURCE := "\\puissance4IHM.java" #[EndFile]
+#[BeginFile]SOURCE := "\\colonne.java" #[EndFile]
+#[BeginFile]SOURCE := "\\verification.java" #[EndFile]
+#[BeginFile]SOURCE := "\\gagne.java" #[EndFile]
+#[BeginFile]SOURCE := "\\joueur.java" #[EndFile]
+#[BeginFile]SOURCE := "\\Puissance4.java" #[EndFile]
+#[EndFolder]
