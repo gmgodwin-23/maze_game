@@ -1,0 +1,19 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "puissance 4"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "\\puissance 4.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "\\puissance4IHM.java" #[EndFile]
+#[BeginFile]SOURCE := "\\colonne.java" #[EndFile]
+#[BeginFile]SOURCE := "\\verification.java" #[EndFile]
+#[BeginFile]SOURCE := "\\gagne.java" #[EndFile]
+#[BeginFile]SOURCE := "\\joueur.java" #[EndFile]
+#[BeginFile]SOURCE := "\\Puissance4.java" #[EndFile]
+
+! Start Breakpoint Structure
+

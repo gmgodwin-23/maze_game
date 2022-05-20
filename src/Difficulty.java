@@ -48,8 +48,8 @@ public class Difficulty {
 
 		// set medium difficult maze
 		frame.dispose();
-		int mediumNum = 15;
-		new MazeFrame(mediumNum);
+		//int mediumNum = 15;
+		new MazeFrame(15);
 		
 //		// Action Listener for EASY difficulty.
 //		easy.addActionListener(new ActionListener()

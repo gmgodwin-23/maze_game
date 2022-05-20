@@ -13,7 +13,9 @@ public class Board extends JPanel {
 	private char[][] board;
 	private int size;
 	private int unVisited;
-	private int scale=1; 
+	private int scale=1;
+	private Position goalPos = new Position();
+	private int goalPosQuad = 0;
 	LinkedList<Position> positionList = new LinkedList<Position>();
 	
 	/**
@@ -68,7 +70,7 @@ public class Board extends JPanel {
 	 */
 	public void paint(Graphics g){
 		super.paint(g);
-		int n = 500/(scale+10);
+		int n = 1000/(scale+10);
 		
 		for(int i = 0; i < size; i++){
 			for( int k = 0; k < size; k++){
@@ -287,7 +289,49 @@ public class Board extends JPanel {
 				}
 			}
 		}
-		set(cC.getX(),cC.getY(),'8');
+		setGoalPos(cC.getX(),cC.getY());
 		set(1,1,'X');
+
+		if (this.goalPosQuad == 1 || this.goalPosQuad == 4) {
+			set(1, 19, 'X');
+		}
+		else if (this.goalPosQuad == 2) {
+			set(19, 19, 'X');
+		}
+		else if (this.goalPosQuad == 3) {
+			set(19, 1, 'X');
+		}
 	}
+
+	public void setGoalPos(int x, int y) {
+		set(x, y,'8');
+		this.goalPos.x = x;
+		this.goalPos.y = y;
+
+		if (this.goalPos.y < 10) {
+			// quad 1
+			if (this.goalPos.x >= 10) {
+				goalPosQuad = 1;
+			}
+			// quad 2
+			if (this.goalPos.x < 10) {
+				goalPosQuad = 2;
+			}
+		}
+		else if (this.goalPos.y >= 10) {
+			// quad 4
+			if (this.goalPos.x >= 10) {
+				goalPosQuad = 4;
+			}
+			// quad 3
+			if (this.goalPos.x < 10) {
+				goalPosQuad = 3;
+			}
+		}
+	}
+
+	public int getGoalPosQuad() {
+		return goalPosQuad;
+	}
+
 }

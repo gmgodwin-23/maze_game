@@ -25,19 +25,24 @@ public class MainMenu {
 	 */
 	public MainMenu(){
 		
-		BoxLayout boxLayout = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS); 
+		BoxLayout boxLayout = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
+
+		Label label = new Label("Maze Game");
+		label.setFont(new Font("Verdana", Font.BOLD, 36));
+		label.setAlignment(label.CENTER);
 		
 		Button play = new Button("Play");
-		play.setFont(new Font("Verdana", Font.BOLD, 32));
+		play.setFont(new Font("Verdana", Font.BOLD, 25));
 		
 		Button instruction = new Button("Instructions");
-		instruction.setFont(new Font("Verdana", Font.BOLD, 32));
-		
+		instruction.setFont(new Font("Verdana", Font.BOLD, 25));
+
+		frame.add(label);
 		frame.add(play); 
 		frame.add(instruction);
 
 		frame.setLayout(boxLayout);
-		frame.setSize(500,500);
+		frame.setSize(800,800);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);

@@ -1,5 +1,6 @@
 //Kru Shah & Darrel Jiang
 
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -8,8 +9,7 @@ import javax.swing.*;
  * to traverse the maze.
  */
 public class Player extends JPanel implements ActionListener{
-	
-	private int money=0;
+	private int playerNum;
 	private int xPos=0;
 	private int yPos=0;
 	private boolean wasd = false;
@@ -23,8 +23,26 @@ public class Player extends JPanel implements ActionListener{
 	 */
 	public Player(Board board, int playerNum){
 		this.board = board;
+		this.playerNum = playerNum;
 		if (playerNum == 1) {
 			this.wasd = true;
+			setStartPos(1, 1);
+		}
+		else {
+			findStartPos();
+		}
+	}
+
+	public void findStartPos() {
+		int quad = board.getGoalPosQuad();
+		if (quad == 1 || quad == 4) {
+			setStartPos(1, 19);
+		}
+		if (quad == 2) {
+			setStartPos(19, 19);
+		}
+		if (quad == 3) {
+			setStartPos(19, 1);
 		}
 	}
 
@@ -72,7 +90,10 @@ public class Player extends JPanel implements ActionListener{
 		if((board.get(xPos-1, yPos) != '#') && (board.get(xPos-1, yPos) != '=')){
 			board.set(xPos, yPos, 'O');
 			if(board.get(xPos-=1, yPos) == '8')	Win();
-			else if(board.get(xPos, yPos) == '+') money++;
+			else if(board.get(xPos, yPos) == '+') {
+				// obstacle
+				Obstacle();
+			}
 			else 	board.set(xPos, yPos, 'X');
 		}
 	}
@@ -86,7 +107,7 @@ public class Player extends JPanel implements ActionListener{
 		if((board.get(xPos+1, yPos) != '#') && (board.get(xPos+1, yPos) != '=')){
 			board.set(xPos, yPos, 'O');
 			if(board.get(xPos+=1, yPos) == '8')	Win();
-			else if(board.get(xPos, yPos) == '+') money++;
+			else if(board.get(xPos, yPos) == '+') Obstacle();
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
@@ -100,7 +121,7 @@ public class Player extends JPanel implements ActionListener{
 		if((board.get(xPos, yPos-1) != '#') && (board.get(xPos, yPos-1) != '=')){
 			board.set(xPos, yPos, 'O');
 			if(board.get(xPos, yPos-=1) == '8')	Win();
-			else if(board.get(xPos, yPos) == '+') money++;
+			else if(board.get(xPos, yPos) == '+') Obstacle();
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
@@ -114,7 +135,7 @@ public class Player extends JPanel implements ActionListener{
 		if((board.get(xPos, yPos+1) != '#') && (board.get(xPos, yPos+1) != '=')){
 			board.set(xPos, yPos, 'O');
 			if(board.get(xPos, yPos+=1) == '8') Win();
-			else if(board.get(xPos, yPos) == '+') money++;
+			else if(board.get(xPos, yPos) == '+') Obstacle();
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
@@ -123,6 +144,19 @@ public class Player extends JPanel implements ActionListener{
 	 * A win method that will display the number of coins obtained.
 	 */
 	public void Win(){
-        new MazeFrame(20, money);        
-	}	
+        new MazeFrame(20, this.playerNum);
+	}
+
+	public void Obstacle() {
+		JFrame frame = new JFrame("mini game");
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.setSize(100, 100);
+		Label textLabel = new Label("mini game");
+
+		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
+
+		frame.setLocationRelativeTo(null);
+		frame.pack();
+		frame.setVisible(true);
+	}
 }	

@@ -29,9 +29,7 @@ public class MazeFrame {
 		
 		final Board test = new Board(level,level,level);
 		final Player player1 = new Player(test, 1);
-		player1.setStartPos(1,1);
 		final Player player2 = new Player(test, 2);
-		player2.setStartPos(20,1);
 		
 		p.add(test, BorderLayout.CENTER);
 		p.setFocusable(true);
@@ -69,7 +67,7 @@ public class MazeFrame {
 			}
 		});	
 		
-		frame.setSize(500, 500);
+		frame.setSize(800, 800);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
@@ -80,20 +78,19 @@ public class MazeFrame {
 	/**
 	 * Constructor for maze frame that displays the win frame.
 	 * @param level The size of the Frame
-	 * @param money The amount of coins collected by the player.
 	 */
-	public MazeFrame(int level, int money){
+	public MazeFrame(int level, int playerNum){
         
         frame.dispose();        
         JFrame frame2 = new JFrame();
         
-        JLabel textLabel = new JLabel("<html>Congratulations!<br>You got " + money + " coin(s)!</html>", JLabel.CENTER);
+        JLabel textLabel = new JLabel("<html>Congratulations Player #" + playerNum + "!<br>You won!</html>", JLabel.CENTER);
         textLabel.setFont(new Font("Verdana", Font.BOLD, 32));
         
         frame2.setBackground(Color.green);
         frame2.add(textLabel, BorderLayout.CENTER);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame2.setSize(500,500);
+        frame2.setSize(800,800);
         frame2.setLocationRelativeTo(null);
         frame2.setVisible(true);
     }
