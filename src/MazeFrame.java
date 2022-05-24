@@ -86,7 +86,7 @@ public class MazeFrame {
         
         JLabel textLabel = new JLabel("<html>Congratulations Player #" + playerNum + "!<br>You won!</html>", JLabel.CENTER);
         textLabel.setFont(new Font("Verdana", Font.BOLD, 32));
-        
+
         frame2.setBackground(Color.green);
         frame2.add(textLabel, BorderLayout.CENTER);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

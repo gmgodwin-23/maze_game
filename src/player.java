@@ -150,13 +150,23 @@ public class Player extends JPanel implements ActionListener{
 	public void Obstacle() {
 		JFrame frame = new JFrame("mini game");
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		frame.setSize(100, 100);
+		frame.setSize(200, 200);
 		Label textLabel = new Label("mini game");
 
 		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
 
+		Button button = new Button("click me to resume maze solving");
+
+		frame.add(button);
 		frame.setLocationRelativeTo(null);
 		frame.pack();
 		frame.setVisible(true);
+
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 	}
 }	

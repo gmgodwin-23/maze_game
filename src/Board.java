@@ -81,13 +81,13 @@ public class Board extends JPanel {
 					g.setColor(Color.black);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == '8'){
-					g.setColor(Color.red);
+					g.setColor(Color.yellow);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == 'X'){
 					g.setColor(Color.blue);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == '+'){
-					g.setColor(Color.yellow);
+					g.setColor(Color.pink);
 					g.fillOval(i*n, k*n, n, n);
 				}
 			}
