@@ -79,12 +79,12 @@ public class MazeFrame {
 	 * Constructor for maze frame that displays the win frame.
 	 * @param level The size of the Frame
 	 */
-	public MazeFrame(int level, int playerNum){
+	public MazeFrame(int level, Player player){
         
         frame.dispose();        
         JFrame frame2 = new JFrame();
         
-        JLabel textLabel = new JLabel("<html>Congratulations Player #" + playerNum + "!<br>You won!</html>", JLabel.CENTER);
+        JLabel textLabel = new JLabel("<html>Congratulations Player #" + player.getPlayerNum() + "!<br>You won with" + player.getPlayerCoins() + " coins collected!</html>", JLabel.CENTER);
         textLabel.setFont(new Font("Verdana", Font.BOLD, 32));
 
         frame2.setBackground(Color.green);

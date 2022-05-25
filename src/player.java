@@ -1,5 +1,7 @@
 //Kru Shah & Darrel Jiang
 
+import javafx.scene.image.ImageView;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -13,6 +15,7 @@ public class Player extends JPanel implements ActionListener{
 	private int xPos=0;
 	private int yPos=0;
 	private boolean wasd = false;
+	private int objCount = 0;
 	
 	private final Board board;
 	
@@ -144,29 +147,43 @@ public class Player extends JPanel implements ActionListener{
 	 * A win method that will display the number of coins obtained.
 	 */
 	public void Win(){
-        new MazeFrame(20, this.playerNum);
+        new MazeFrame(20, this);
 	}
 
 	public void Obstacle() {
-		JFrame frame = new JFrame("mini game");
-		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		frame.setSize(200, 200);
-		Label textLabel = new Label("mini game");
-
-		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-
-		Button button = new Button("click me to resume maze solving");
-
-		frame.add(button);
-		frame.setLocationRelativeTo(null);
-		frame.pack();
-		frame.setVisible(true);
-
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-			}
-		});
+		objCount++;
+//		JFrame frame = new JFrame("mini game");
+//		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+//		frame.setSize(200, 200);
+//		String labelstring = "press n as fast as you can!!";
+//		if (playerNum == 1) {
+//			labelstring = "press x as fast as you can!!";
+//		}
+//		Label textLabel = new Label(labelstring);
+//		JLabel croissant = new JLabel();
+//		croissant.setIcon(new ImageIcon("file:img/croissant.jpeg"));
+//
+//		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
+//
+////		Button button = new Button("click me to resume maze solving");
+//
+////		frame.add(button);
+//
+//		frame.setLocationRelativeTo(null);
+//		frame.pack();
+//		frame.setVisible(true);
+//
+//		// MemoryGame memoryGame = new MemoryGame();
+//
+////		button.addActionListener(new ActionListener() {
+////			@Override
+////			public void actionPerformed(ActionEvent e) {
+////				frame.dispose();
+////			}
+////		});
 	}
+
+	public int getPlayerNum() { return this.playerNum; }
+
+	public int getPlayerCoins() { return this.objCount; }
 }	

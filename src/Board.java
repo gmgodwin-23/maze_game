@@ -1,7 +1,7 @@
-//Kru Shah & Darrel Jiang
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -17,6 +17,8 @@ public class Board extends JPanel {
 	private Position goalPos = new Position();
 	private int goalPosQuad = 0;
 	LinkedList<Position> positionList = new LinkedList<Position>();
+//	final BufferedImage french = new BufferedImage("file:img/fernch.jpg");
+//	final BufferedImage american = new BufferedImage("file:img/american/jpeg");
 	
 	/**
 	 * The constructor for the board, taking in an x and a y as the 
@@ -74,20 +76,32 @@ public class Board extends JPanel {
 		
 		for(int i = 0; i < size; i++){
 			for( int k = 0; k < size; k++){
-				if((board[i][k] == '#')){
-					g.setColor(Color.black);
+				if((board[i][k] == '#') && (i % 2 == 0) && (k % 2 != 0)) {
+					g.setColor(Color.blue);
+					g.fillRect(i*n, k*n, n, n);
+				} else if ((board[i][k] == '#') && (i % 2 == 0) && (k % 2 == 0)) {
+					g.setColor(Color.red);
+					g.fillRect(i*n, k*n, n, n);
+				}else if ((board[i][k] == '#') && (i % 2 != 0) && (k % 2 == 0)) {
+					g.setColor(Color.blue);
+					g.fillRect(i*n, k*n, n, n);
+				} else if((board[i][k] == '#') && (i % 2 != 0) && (k % 2 == 0)) {
+					g.setColor(Color.red);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == '='){
 					g.setColor(Color.black);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == '8'){
-					g.setColor(Color.yellow);
+					g.setColor(Color.green);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == 'X'){
-					g.setColor(Color.blue);
+					g.setColor(Color.cyan);
+					g.fillRect(i*n, k*n, n, n);
+				} else if (board[i][k] == 'Y') {
+					g.setColor(Color.cyan);
 					g.fillRect(i*n, k*n, n, n);
 				} else if(board[i][k] == '+'){
-					g.setColor(Color.pink);
+					g.setColor(Color.orange);
 					g.fillOval(i*n, k*n, n, n);
 				}
 			}
@@ -293,13 +307,13 @@ public class Board extends JPanel {
 		set(1,1,'X');
 
 		if (this.goalPosQuad == 1 || this.goalPosQuad == 4) {
-			set(1, 19, 'X');
+			set(1, 19, 'Y');
 		}
 		else if (this.goalPosQuad == 2) {
-			set(19, 19, 'X');
+			set(19, 19, 'Y');
 		}
 		else if (this.goalPosQuad == 3) {
-			set(19, 1, 'X');
+			set(19, 1, 'Y');
 		}
 	}
 

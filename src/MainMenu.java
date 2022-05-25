@@ -27,7 +27,7 @@ public class MainMenu {
 		
 		BoxLayout boxLayout = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
 
-		Label label = new Label("Maze Game");
+		Label label = new Label("One Totally Awesome Maze");
 		label.setFont(new Font("Verdana", Font.BOLD, 36));
 		label.setAlignment(label.CENTER);
 		
@@ -65,15 +65,8 @@ public class MainMenu {
 				frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				
 				JLabel textLabel = new JLabel("" +"<html>" +
-						"1. Player starts as the blue character.<br> " +
-						"2. Player must reach the red endpoint to win.<br> " +
-						"3. Get coins while making your way through the maze. <br>" +
-						"4. Achieve a higher score.<br>" +
-						"" +
-						"5. Move the character by using the 'W-A-S-D' keyboard or <br>" +
-						"by using the standard arrow keys to move.<br>" +
-						"" +
-						"6. Mouse clicks can also be used on the on-screen <br>directional buttons as well. </html>");
+						"Play as one of the blue players and be " +
+						"the first to get to reach the yellow square in the maze </html>");
 				frame.getContentPane().add(textLabel, BorderLayout.CENTER);
 				
 				frame.setLocationRelativeTo(null);
