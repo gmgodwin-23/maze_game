@@ -1,8 +1,7 @@
-//Kru Shah & Darrel Jiang
+
 
 /**
- * 
- * @author Krunal Shah
+ *
  * Runs the Maze game.
  *
  */

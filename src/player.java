@@ -1,15 +1,7 @@
-//Kru Shah & Darrel Jiang
 
-import javafx.scene.image.ImageView;
-
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/**
- * A class that creates all the elements necessary for a player
- * to traverse the maze.
- */
 public class Player extends JPanel implements ActionListener{
 	private int playerNum;
 	private int xPos=0;
@@ -18,12 +10,7 @@ public class Player extends JPanel implements ActionListener{
 	private int objCount = 0;
 	
 	private final Board board;
-	
-	/**
-	 * Constructor for the player that will be set on the specified
-	 * board.
-	 * @param board The board the player will play on.
-	 */
+
 	public Player(Board board, int playerNum){
 		this.board = board;
 		this.playerNum = playerNum;
@@ -61,10 +48,7 @@ public class Player extends JPanel implements ActionListener{
 		repaint();
 	}
 	
-	/**
-	 * Inner class that allows for the keyboard input of
-	 * {w,a,s,d} to move up, left, down, right.
-	 */
+	/* wasd and arrow keys */
 	public class MyKeyListener extends KeyAdapter{
 		public void keyPressed(KeyEvent e){
 			if (wasd) {
@@ -83,12 +67,7 @@ public class Player extends JPanel implements ActionListener{
 
 		}
 	}
-	
-	/**
-	 * Allows the player to move left, checking for if the player's next
-	 * move hits a win cell or a coin cell.
-	 * @param board The board the player will move on.
-	 */
+
 	public void moveLeft(Board board){
 		if((board.get(xPos-1, yPos) != '#') && (board.get(xPos-1, yPos) != '=')){
 			board.set(xPos, yPos, 'O');
@@ -100,12 +79,7 @@ public class Player extends JPanel implements ActionListener{
 			else 	board.set(xPos, yPos, 'X');
 		}
 	}
-	
-	/**
-	 * Allows the player to move right, checking for if the player's next
-	 * move hits a win cell or a coin cell.
-	 * @param board The board the player will move on.
-	 */
+
 	public void moveRight(Board board){
 		if((board.get(xPos+1, yPos) != '#') && (board.get(xPos+1, yPos) != '=')){
 			board.set(xPos, yPos, 'O');
@@ -114,12 +88,7 @@ public class Player extends JPanel implements ActionListener{
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
-	
-	/**
-	 * Allows the player to move up, checking for if the player's next
-	 * move hits a win cell or a coin cell.
-	 * @param board The board the player will move on.
-	 */
+
 	public void moveUp(Board board){
 		if((board.get(xPos, yPos-1) != '#') && (board.get(xPos, yPos-1) != '=')){
 			board.set(xPos, yPos, 'O');
@@ -128,12 +97,7 @@ public class Player extends JPanel implements ActionListener{
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
-	
-	/**
-	 * Allows the player to move down, checking for if the player's next
-	 * move hits a win cell or a coin cell.
-	 * @param board The board the player will move on.
-	 */
+
 	public void moveDown(Board board){
 		if((board.get(xPos, yPos+1) != '#') && (board.get(xPos, yPos+1) != '=')){
 			board.set(xPos, yPos, 'O');
@@ -142,45 +106,14 @@ public class Player extends JPanel implements ActionListener{
 			else	board.set(xPos, yPos, 'X');
 		}
 	}
-	
-	/**
-	 * A win method that will display the number of coins obtained.
-	 */
+
 	public void Win(){
-        new MazeFrame(20, this);
+        new MazeFrame(this);
 	}
 
 	public void Obstacle() {
 		objCount++;
-//		JFrame frame = new JFrame("mini game");
-//		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-//		frame.setSize(200, 200);
-//		String labelstring = "press n as fast as you can!!";
-//		if (playerNum == 1) {
-//			labelstring = "press x as fast as you can!!";
-//		}
-//		Label textLabel = new Label(labelstring);
-//		JLabel croissant = new JLabel();
-//		croissant.setIcon(new ImageIcon("file:img/croissant.jpeg"));
-//
-//		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-//
-////		Button button = new Button("click me to resume maze solving");
-//
-////		frame.add(button);
-//
-//		frame.setLocationRelativeTo(null);
-//		frame.pack();
-//		frame.setVisible(true);
-//
-//		// MemoryGame memoryGame = new MemoryGame();
-//
-////		button.addActionListener(new ActionListener() {
-////			@Override
-////			public void actionPerformed(ActionEvent e) {
-////				frame.dispose();
-////			}
-////		});
+		board.set(xPos, yPos, 'O');
 	}
 
 	public int getPlayerNum() { return this.playerNum; }
